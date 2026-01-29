@@ -1,11 +1,17 @@
 import os
 import logging
 import tempfile
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from pdf2docx import Converter
 import asyncio
 from io import BytesIO
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
+
+# Load environment variables
+load_dotenv()
 
 # Enable logging
 logging.basicConfig(
